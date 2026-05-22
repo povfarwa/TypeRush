@@ -1,0 +1,26 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root { 
+    --bg: black;
+    --surface: #14161a;
+    --surface2: #1b1e24;
+    --border: #272b34;
+    --accent: #e8c547;
+    --accent-dim: #c4a42e;
+    --danger: red;
+    --danger-bg: #3a1818;
+    --txt-primary: white;
+    --text-secondry: #687180;
+    --txt-muted: white;
+    --txt-error: red;
+    --font-monp: 'Space Mono', 'Courier New', monospace;
+    --font-ui: 'Syne', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --transition: 0.16s ease;
+}
