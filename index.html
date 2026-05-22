@@ -34,5 +34,32 @@
       <div class="timer-number" id="timer-display">60</div>
     </div>
 
+    <div class="stat-block">
+      <span class="stat-value">100</span>
+      <span class="stat-label">acc %</span>
+    </div>
+
+    <div class="time-selector" role="group" aria-label="Select test duration">
+      <button class="time-btn" data-time="15">15s</button>
+      <button class="time-btn" data-time="30">30s</button>
+      <button class="time-btn active" data-time="60">60s</button>
+    </div>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="pogress-fill" id="progress-bar"></div>
+    </div>
+
+    <div class="typing-card unfocused" id="typing-card" role="main"></div>
+
+    <div class="words-display" id="words-display"></div>
+    <div class="focus-hint" aria-hidden="true">click here or press any key</div>
+
+    <div class="controls">
+      <button class="btn-restart" id="restart-btn" aria-label="'Restart test">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"></svg>
+        restart
+      </button>
+    </div>
+
 </body>
 </html>
