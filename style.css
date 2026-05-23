@@ -35,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .bg-grid {
@@ -44,13 +45,16 @@ body {
     linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 44px 44px;
     opacity: 0.14;
+    z-index: 0;
 }
 
 .container {
     position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 860px;
     display: flex;
+    padding: 0 1.5rem;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
@@ -61,12 +65,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    pading: 2rem;
+    padding: 2rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 2.4rem;
 }
 
-.logo {
+.logo { 
     display: flex;
     align-items: baseline;
     gap: 7px;
