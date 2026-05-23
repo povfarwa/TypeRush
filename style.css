@@ -104,3 +104,85 @@ body {
     border-radius: 20px;
     text-transform: lowercase;
 }
+
+.live-starts {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.start-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    min-width: 70px;
+}
+
+.stat-value {
+    font-family: var(--font-mono);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    transition: transform 0.1s ease;
+}
+
+.stat-value.pop {
+    transform: scale(1.18);
+}
+
+.stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+    color: var(--txt-secondry);
+}
+
+.timer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 92px;
+}
+
+.timer-svg {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.ring-bg {
+    fill: none;
+    stroke: var(--surface2);
+    stroke-width: 4;
+}
+
+.ring-arc {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.ring-arc.danger {
+    stroke: var(--danger);
+}
+
+.timer-number {
+    position: absolute;
+    z-index: 1;
+    font-family: var(--font-mono);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--txt-primary);
+    user-select: none;
+}
+
+.timer-number.danger {
+    color: var(--danger);
+}
