@@ -228,3 +228,62 @@ body {
     background: var(--accent);
     border: 2px;
 }
+
+.typing-card {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    position: relative;
+    margin-bottom: 1.4rem;
+    cursor: text;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.typing-card.focused {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+.ghost-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.words-display {
+    font-family: var(--font-mono);
+    font-size: 1.22rem;
+    line-height: 2.3;
+    color: var(--txt-muted);
+    user-select: none;
+    position: relative;
+    max-height: 6.9rem;
+    overflow: hidden;
+}
+
+.word {
+    display: inline-block;
+    margin-right: 0.5rem;
+    position: relative;
+}
+
+.char {
+    position: relative;
+}
+
+.char.typed {
+    color: var(--txt-typed)
+}
+
+.char-error {
+    color: var(--txt-error);
+    background: var(--danger-bg);
+    border-radius: 2px:
+}
