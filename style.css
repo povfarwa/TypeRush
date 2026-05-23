@@ -186,3 +186,32 @@ body {
 .timer-number.danger {
     color: var(--danger);
 }
+
+.time-selector {
+    display: flex;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px folid var(--border);
+    border-radius: var(--radius-md);
+    padding: 5px;
+    margin-bottom: 1.6rem;
+}
+
+.time-btn {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 22px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--txt-secondry);
+    letter-spacing: 0.5px;
+    transition: all var(--transition);
+}
+
+.time-btn.actice {
+    background: var(--accent);
+    color: #0d0e10;
+}
+
