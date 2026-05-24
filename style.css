@@ -285,7 +285,7 @@ body {
 .char-error {
     color: var(--txt-error);
     background: var(--danger-bg);
-    border-radius: 2px:
+    border-radius: 2px;
 }
 
 .char.cursor::before {
@@ -308,7 +308,7 @@ body {
 .focus-hint {
     position: absolute;
     inset: 0;
-    displaay: flex;
+    display: flex;
     align-items: center;
     justify-content: var(--font-mono);
     font-size: 0.82rem;
@@ -367,6 +367,6 @@ kbd {
     font-family: var(--font-mono);
     font-size: 0.65rem;
     color: var(--txt-muted);
-    leter_spaing: 1.5px;
+    letter-spacing: 1.5px;
     text-align: center;
 }
