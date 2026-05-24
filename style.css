@@ -287,3 +287,86 @@ body {
     background: var(--danger-bg);
     border-radius: 2px:
 }
+
+.char.cursor::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    animation: blick 1.1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0;}
+}
+
+.focus-hint {
+    position: absolute;
+    inset: 0;
+    displaay: flex;
+    align-items: center;
+    justify-content: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    color: var(--txt-secondry);
+    background: rgba(13, 14, 16, 0.78);
+    border-radius: var(--radius-lg);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.btn-restart {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.70rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 9px 20px;
+    border: 1px solid var(--border);
+    color: var(--txt-secondry);
+    text-transform: lowercase;
+}
+
+.btn-restart svg {
+    transition: transform 0.35s ease;
+}
+
+.shortcute-hint {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--txt-muted);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+kbd {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    background: var(--surafce2);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--txt-secondry);
+}
+
+.footer {
+    margin-top: auto;
+    padding: 2rem 0.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--txt-muted);
+    leter_spaing: 1.5px;
+    text-align: center;
+}
