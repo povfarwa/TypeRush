@@ -429,3 +429,101 @@ kbd {
     margin-bottom: 1.8rem;
     letter-spacing: 1px;
 }
+
+.grade-s {
+    background: rgba(232, 197, 71, 0.14);
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+}
+
+.grade-a {
+    background: rgba(80, 200, 130, 0.12);
+    color: 1px solid #2e6e4a;
+}
+
+.grade-b {
+    background: rgba(210, 150, 70, 0.12);
+    color: #7aaa;
+    border: 1px solid #2e4a8e;
+}
+
+.grade-c {
+    background: rgba(210,150,70,0.12);
+    color: #e0a040;
+    border: 1px solid #805020;
+}
+
+.grade-d {
+     background: rgba(220,80,80,0.12); 
+     color: var(--danger);
+     border: 1px solid #7a2020;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.result-cell {
+    background: var(--surface2);
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.results-lbl {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    color: var(--txt-secondry);
+    text-transform: lowercase;
+}
+
+.btn-retry {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 14px;
+    padding: 14px;
+    background: var(--accent);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: lowercase;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.btn-retry:hover {
+    background: var(--accent-dim);
+    transform: translateY(-1px);
+}
+
+.btn-retry:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .words-display  { font-size: 1rem; line-height: 2.1; max-height: 6.3rem; }
+  .typing-card    { padding: 1.4rem 1.2rem; }
+  .stat-value     { font-size: 1.8rem; }
+  .timer-wrap     { width: 78px; height: 78px; }
+  .timer-number   { font-size: 1.3rem; }
+  .results-card   { padding: 2rem 1.4rem; }
+  .results-wpm    { font-size: 4rem; }
+  .header         { padding: 1.4rem 0 1rem; }
+}
+
+@media (max-width: 400px) {
+  .time-btn       { padding: 7px 14px; font-size: 0.78rem; }
+  .words-display  { font-size: 0.9rem; }
+  .container      { padding: 0 1rem; }
+}
