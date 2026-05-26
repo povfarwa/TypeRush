@@ -52,13 +52,45 @@ const dom = {
     liveWpm: document.getElementById('live-wpm'),
     liveAcc: document.getElementById('live-acc'),
     progressBar: document.getElementById('progress-bar'),
-    timeBtns: document.getElementById('.time-btn')
+    timeBtns: document.getElementById('.time-btn'),
     restartBtn: document.getElementById('restart-btn'),
-    resultsOverlay: document.getElementById: ('results-overlay'),
+    resultsOverlay: document.getElementById('results-overlay'),
     resWpm: document.getElementById('res-wpm'),
     resAcc: document.getElementById('res-acc'),
     resCorrect: document.getElementById('res-correct'),
     resErrors: document.getElementById('res-correct'),
     resGrade: document.getElementById('res-grade'),
     retryBtn: document.getElementById('retry-btn'),
+}
+
+const CIRCUMFERENCE = 2 * Math.PI * 38
+
+function generateWordList(count = 120){
+    const result = []
+    const shuffled = [...WORDS].sort(()=> Math.random()- 0.5)
+    while (result.length < count){
+        result.push(...shuffled.sort(() => Math.random() - 0.5))
+    }
+    return result.slice(0, count)
+}
+
+function renderWords(){
+    dom.wordsDisplay.innerHTML = ''
+    state.words.forEach((word, wi)=>{
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
+        wordSpan.dataset.wi = wi;
+
+        [...word].forEach((ch, ci) => {
+            const charSpan = document.createElement('span')
+            charSpan.className = 'char'
+            charSpan.dataset.wi = wi
+            charSpan.dataset.ci = ci
+            charSpan.textContent = ch
+            wordSpan.appendChild(charSpan)
+
+        })
+        dom.wordsDisplay.appendChild(wordSpan)
+  })
+  placeCursor(0, 0)
 }
