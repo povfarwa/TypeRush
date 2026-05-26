@@ -191,7 +191,7 @@ function handleInput(){
     
     charEls.forEach((span, i)=> {
         if(typed[i]=== wordStr[i]){
-            
+            console.log('corect')
         }
     })
 }
