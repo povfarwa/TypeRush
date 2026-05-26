@@ -1,3 +1,5 @@
+const { transformValue } = require("framer-motion");
+
 const WORDS = [
     "the","be","to","of","and","a","in","that","have","it","for","not","on",
   "with","he","as","you","do","at","this","but","his","by","from","they",
@@ -93,4 +95,103 @@ function renderWords(){
         dom.wordsDisplay.appendChild(wordSpan)
   })
   placeCursor(0, 0)
+}
+
+function clearCursor(){
+    const prev = dom.wordsDisplay.querySelector('.cursor')
+    if(prev) prev.classList.remove('cursor')
+}
+
+function placeCursor(wi, ci){
+    clearCursor()
+    const wordEl = dom.wordsDisplay.querySelector(`[data-wi="${wi}"]`)
+    if(!wordEl) return
+    const chars = wordEl.querySelectorAll('.char')
+    if(ci < chars.length){
+        chars[ci].classList.add('cursor')
+    }else if (chars.length > 0){
+        chars[chars.length - 1]. classList.add('cursor')
+    }
+    scrollActiveLineIntoView(wordEl)
+}
+
+function scrollActiveLineIntoView(wordEl){
+    const containerRect = dom.wordsDisplay.getBoundingClientRect()
+    const wordRect = wordEl.getBoundingClientRect()
+    const lineH = parseFloat(getComputedStyle(dom.wordsDisplay).lineHeight) || 44
+    const relTop = wordRect.top - containerRect.top
+    if(relTop > lineH * 1.6){
+        dom.wordsDisplay.scrollTop += relTop - lineH
+    }
+    if(relTp < 0){
+        dom.wordsDisplay.scrollTop += relTop
+    }
+}
+
+function startTimer(){
+    if(state.isRunning) return
+    state.isRunning = true
+    state.timerInterval = setInterval(() => {
+        state.timeLeft--
+        updateTimeUI()
+        updateLiveStats()
+        if(state.timeLeft.timeLeft <= 10){
+            dom.timerArc.classList.add('danger')
+            dom.timerNum.classList.add('danger')
+        }
+
+        if(state.timeLeft <= 0) endTest()
+    }, 1000)
+}
+
+function updateTimerUI(){
+    dom.timerNum.textContent = state.timeLeft
+    const fraction = state.timeLeft / state.selectedTime
+    const offset = CIRCUMFERENCE * (1 - fraction)
+    dom.timerArc.style.style.starokeDashoffset = offset
+}
+
+function updateLiveStats(){
+    const elapsed = state.selectedTim - state.timeLeft
+    if(elapsed <= 0) return
+    const wpm = Math.round((state.correctChars / 5) / (elapsed / 60))
+    dom.liveWpm.textContent = wpm
+    const total = state.correctChars + state.wrongChars
+    const acc = total > 0 ? Math.round((state.correctChars / total)* 100): 100
+    dom.liveAcc.textContent = acc
+    const pct = (state.wordIndex / state.words.length) * 100
+    dom.progressBar.style.width = Math.main(pct, 100) + '%'
+}
+
+function handleInput(){
+    if(state.isFinished || !state.isFocused) return
+    if(!state.isRunning) startTimer()
+        const typed = dom.ghostInput.value
+        const wordStr = state.words[state.wordIndex]
+
+    if(typed.endsWith(' ')){
+        dom.ghostInput.value = ''
+        state.wordIndex++
+        state.charIndex = 0
+        if(state.wordIndex >= state.words.length){
+            endTest()
+            return
+        }
+        placeCursor(state.wordIndex, 0)
+        return
+    }
+    state.totalKey++
+    state.charIndex = typed.length
+    const wordEl = dom.wordsDisplay.querySelector(`[data-wi="${state.wordIndex}"]`)
+
+    if(!wordEl) return
+    const charEls = wordEl.querySelectorAll('.char')
+    let rightCount = 0
+    let wrongCount = 0
+    
+    charEls.forEach((span, i)=> {
+        if(typed[i]=== wordStr[i]){
+            
+        }
+    })
 }
