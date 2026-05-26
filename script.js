@@ -1,0 +1,64 @@
+const WORDS = [
+    "the","be","to","of","and","a","in","that","have","it","for","not","on",
+  "with","he","as","you","do","at","this","but","his","by","from","they",
+  "we","say","her","she","or","an","will","my","one","all","would","there",
+  "their","what","so","up","out","if","about","who","get","which","go","me",
+  "when","make","can","like","time","no","just","him","know","take","people",
+  "into","year","your","good","some","could","them","see","other","than",
+  "then","now","look","only","come","its","over","think","also","back","after",
+  "use","two","how","our","work","first","well","way","even","new","want",
+  "because","any","these","give","day","most","us","great","between","need",
+    "the", "be" , "of", "and", "then", "a", "in", "to", "apple", "meow",
+    "that", "have","it", "for", "cause", "interest","not", "on",
+    "width", "he", "as", "you", "with", "javascript", "do", "at",
+    "for", "it", "this", "but", "his", "by", "from", "they", "we", "say", "her"
+    ,"will", "century", "my", "own", "well", "upon", "would", "there", "when",
+    "if", "do", "so", "she", "also", "back", "look", "only", "come",
+    "started", "use", "city", "there", "the", "current", "curiosity", "make", "think",
+    "his", "cause", "ineterest", "people", "for", "state",
+    "mango", "between", "long", "journey", "before", "daughter", "lead", "paper", "music",
+    "light", "night", "voice", "wow", "understand", "thousands",
+   "brought", "young","ready","above","ever","red","list","though","feel","talk","bird",
+  "soon","body","dog","family","direct","pose","leave","cut","sure","watch",
+  "color","note","nothing","rest","carefully","scientists","inside","wheels",
+  "stay","green","known","island","week","less","machine","base","ago","stood",
+  "plane","system","behind","ran","round","boat","game","force","brought",
+  "understand","warm","common","bring","explain","dry","though","language",
+  "shape","deep","thousands","yes","clear","equation","yet","government", "html"
+];
+
+const state = {
+    select : 60,
+    timeleft: 60,
+    isRunning: false,
+    isFinished: false,
+    isFocused: false,
+    words : [],
+    wordIndex: 0,
+    charIndex: 0,
+    timerInterval: null,
+    correctChars: 0,
+    wrongChars: 0,
+    totalKeys: 0,
+}
+
+
+const dom = {
+    card: document.getElementById('typing-card'),
+    wordsDisplay: document.getElementById('words-display'),
+    ghostInput: document.getElementById('ghost-input'),
+    timerArc: document.getElementById('timer-arc'),
+    timerNum: document.getElementById("timer-display"),
+    liveWpm: document.getElementById('live-wpm'),
+    liveAcc: document.getElementById('live-acc'),
+    progressBar: document.getElementById('progress-bar'),
+    timeBtns: document.getElementById('.time-btn')
+    restartBtn: document.getElementById('restart-btn'),
+    resultsOverlay: document.getElementById: ('results-overlay'),
+    resWpm: document.getElementById('res-wpm'),
+    resAcc: document.getElementById('res-acc'),
+    resCorrect: document.getElementById('res-correct'),
+    resErrors: document.getElementById('res-correct'),
+    resGrade: document.getElementById('res-grade'),
+    retryBtn: document.getElementById('retry-btn'),
+}
