@@ -2,10 +2,10 @@
 I am making this website(app) where you can test your typing speed and also see your accuracy. It is inspired by MonkeyType which is also an typing tester app.
 
 ## Fetures
-** Typing **: You can type in it
-** Wpm ** : When you finish typing your Wpm will be shown on the screen
-** Time Selection ** : You can also select time (in how much time you want to type)
-** Accuracy **: Your typing accuracy will be also shown after time completed
+* Typing *: You can type in it
+* Wpm * : When you finish typing your Wpm will be shown on the screen
+* Time Selection * : You can also select time (in how much time you want to type)
+* Accuracy *: Your typing accuracy will be also shown after time completed
 
 ## My Inspiration
 <img width="1919" height="729" alt="image" src="https://github.com/user-attachments/assets/0423ba4a-9477-4562-a373-b3e4b40197d8" />
