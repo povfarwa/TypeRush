@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TypeResh</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeRush — Speed Typing Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
-  
-    <div class="container">
-      <header class="header">
-        <div class="logo">
-          <span class="logo-icon">&gt;_</span>
-          <span class="logo-name">Type<em>Rush</em></span>
-        </div>
-        <span class="header-tag">speed test</span>
-      </header>
-        </div>
-    </div>
-  
-    <div class="live-starts">
+
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">&gt;_</span>
+        <span class="logo-name">Type<em>Rush</em></span>
+      </div>
+      <span class="header-tag">speed test</span>
+    </header>
+
+    <div class="live-stats">
       <div class="stat-block">
         <span class="stat-value" id="live-wpm">0</span>
         <span class="stat-label">wpm</span>
       </div>
-    </div>
 
-    <div class="time-wrap">
-      <svg>
-        <circle class="ring-bg" cx="45" cy="45" r="38" />
-        <circle class="ring-arc" cx="45" cy="45" r="38" id="timer-arc" />
-      </svg>
-      <div class="timer-number" id="timer-display">60</div>
-    </div>
+      <div class="timer-wrap">
+        <svg class="timer-svg" viewBox="0 0 90 90" aria-hidden="true">
+          <circle class="ring-bg"  cx="45" cy="45" r="38" />
+          <circle class="ring-arc" cx="45" cy="45" r="38" id="timer-arc" />
+        </svg>
+        <div class="timer-number" id="timer-display">60</div>
+      </div>
 
-    <div class="stat-block">
-      <span class="stat-value">100</span>
-      <span class="stat-label">acc %</span>
+      <div class="stat-block">
+        <span class="stat-value" id="live-acc">100</span>
+        <span class="stat-label">acc %</span>
+      </div>
     </div>
 
     <div class="time-selector" role="group" aria-label="Select test duration">
@@ -47,46 +53,73 @@
     </div>
 
     <div class="progress-track" aria-hidden="true">
-      <div class="pogress-fill" id="progress-bar"></div>
+      <div class="progress-fill" id="progress-bar"></div>
     </div>
 
-    <div class="typing-card unfocused" id="typing-card" role="main"></div>
+    <div class="typing-card unfocused" id="typing-card" role="main">
 
-    <div class="words-display" id="words-display"></div>
-    <div class="focus-hint" aria-hidden="true">click here or press any key</div>
+      <input
+        type="text"
+        class="ghost-input"
+        id="ghost-input"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Type here"
+      />
+
+      <div class="words-display" id="words-display"></div>
+
+      <div class="focus-hint" aria-hidden="true">click here or press any key</div>
+
+    </div>
 
     <div class="controls">
-      <button class="btn-restart" id="restart-btn" aria-label="'Restart test">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"></svg>
+      <button class="btn-restart" id="restart-btn" aria-label="Restart test">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="1 4 1 10 7 10"></polyline>
+          <path d="M3.51 15a9 9 0 1 0 .49-3.62"></path>
+        </svg>
         restart
       </button>
     </div>
 
     <p class="shortcut-hint">
-      press <kbd>Tab</kbd> to restart &nbsp;.&&nbsp; <kbd>Space</kbd> for next word
+      press <kbd>Tab</kbd> to restart &nbsp;·&nbsp; <kbd>Space</kbd> for next word
     </p>
 
-    <footer class="footer">typerush &mdash; test your finders, beat your limits</footer>
+    <footer class="footer">typerush &mdash; test your fingers, beat your limits</footer>
   </div>
 
   <div class="results-overlay" id="results-overlay" role="dialog" aria-modal="true" aria-label="Test results">
-    <div class="results-card"></div>
-    <p class="results-eyebrow">test complte</p>
-    <div class="results-wmp" id="res-wpm">0</div>
-    <div class="grade-badge" id="res-grade"></div>
-    <div class="results-grid">
-      <div class="result-cell">
-        <span class="result-num" id="res-acc">0%</span>
-        <span class="result-lbl">accuracy</span>
+    <div class="results-card">
+
+      <p class="results-eyebrow">test complete</p>
+      <div class="results-wpm" id="res-wpm">0</div>
+      <p class="results-wpm-sub">words per minute</p>
+
+      <div class="grade-badge" id="res-grade"></div>
+
+      <div class="results-grid">
+        <div class="result-cell">
+          <span class="result-num" id="res-acc">0%</span>
+          <span class="result-lbl">accuracy</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-num" id="res-correct">0</span>
+          <span class="result-lbl">correct</span>
+        </div>
+        <div class="result-cell">
+          <span class="result-num" id="res-errors">0</span>
+          <span class="result-lbl">errors</span>
+        </div>
       </div>
-      <div class="result-cell">
-        <span class="result-num" id="res-correct">0</span>
-        <span class="result-lbl">correct</span>
-      </div>
-      <div class="results-cell">
-        <span class="result-num" id="res-errors">0</span>
-        <span class="result-lbl">errors</span>
-      </div>
+
+      <button class="btn-retry" id="retry-btn">↩ &nbsp;try again</button>
+
     </div>
   </div>
 
