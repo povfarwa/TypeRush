@@ -219,6 +219,8 @@ function countCharsInFinishedWords(cls){
 function endTest(){
     clearInterval(state.timerInterval)
     state.isRunning = false
+    state.isFinished = true
+    dom.ghostInput.blur()
     showResults()
 }
 
@@ -279,3 +281,52 @@ function setFocused(focused){
     dom.card.classList.toggle('unfocused', !focused)
     dom.card.classList.toggle('focused', focused)
 }
+
+dom.card.addEventListener('click', ()=> {
+    setFocused(trye)
+    dom.ghostInput.focus()
+})
+
+dom.ghostInput.addEventListener('click', () => {
+    setFocused(true)
+    dom.ghostInput.focus()
+})
+
+dom.ghostInput.addEventListener('focus', () => setFocus{true})
+dom.ghostInput.addEventListener('blur', ()=> {
+    if (!state.isFinished) setFocused(false)
+})
+
+document.addEventListener('keypress', (e)=> {
+    if(!state.isFocused && !state.isFinished && e.target === document.body){
+        setFocus(true)
+        dom.ghostInput.focus()
+    }
+})
+
+document.addEventListener('keypress', (e) => {
+    if(e.key === 'Tab'){
+        e.preventDefault()
+        resetTest()
+    }
+})
+dom.ghostInput.addEventListener('input', handleInput)
+
+domMax.timeBtns.foreach(btn => {
+    btn.addEentListener('click', () => {
+        dom.timeBtns.forEach(b => b.classList.remove('active'))
+        btn.classList.add('active')
+        state.selectedTime = praseInt(btn.dataset.time, 10)
+        resetTest()
+    })
+})
+
+dom.restartBtn.addEventListener('click', resetTest)
+dom.retryBtn.addEentListener('click', resetTest)
+
+(function init(){
+    dom.timerArc.style.strokeDasharray = CIRCUMFERENCE
+    dom.timerArc.style.strokeDashoffset = 0
+    state.words = generatedWordList(120)
+    renderWords
+})()
