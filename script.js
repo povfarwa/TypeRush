@@ -246,3 +246,36 @@ function showResults(){
     dom.resultsOverlay.classList.add('show')
 }
 
+function restTest(){
+    clearInterval(state.timerInterval)
+    state.timeLeft = state.selectedTime
+    state.isRunning = false
+    state.isFinished = false
+    state.wordIndex = 0
+    state.charIndex = 0
+    state.correctChars = 0
+    state.wrongChars = 0
+    state.totalKeys = 0
+
+    dom.timerArc.style.strokeDashoffset = 0
+    dom.timerArc.classList.remove('danger')
+    dom.timerNum.classList.remove('danger')
+    dom.timerNum.textContent = state.selectedTime
+    dom.liveWpm.textContent = '0'
+    dom.liveAcc.textContent = '100'
+    dom.progressBar.style.width = '0%'
+    dom.ghostInput.value = ''
+    dom.wordsDisplay.scrollTop = 0
+    dom.resultsOverlay.classList.remove('show')
+    state.words = generateWordList(120)
+    renderWords()
+    
+    if(state.isFocused){
+        dom.ghostInput.focus()
+    }}
+
+function setFocused(focused){
+    state.isFocused = focused
+    dom.card.classList.toggle('unfocused', !focused)
+    dom.card.classList.toggle('focused', focused)
+}
