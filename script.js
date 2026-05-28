@@ -207,3 +207,42 @@ function handleInput(){
     updateLiveStats()
 }
 
+function countCharsInFinishedWords(cls){
+    let n = 0
+    for(let wi = 0; wi < state.wordIndex; wi++){
+        const wordEl = dom.wordsDisplay.querySelector(`[data-wi="${wi}"]`)
+        if(wordEl) n += wordEl.querySelectorAll('.' + cls).length
+    }
+    return n
+}
+
+function endTest(){
+    clearInterval(state.timerInterval)
+    state.isRunning = false
+    showResults()
+}
+
+function showResults(){
+    const totalCorrect = dom.wordsDisplay.querySelectorAll('.char.typed').length
+    const totalErrors = dom.wordsDisplay.querySelectorAll('.char.error').length
+    const elapsed = state.selectedTime - Math.max(state.timeLeft, 0) || state.selectedTime
+    const wpm = Math.round((totalCorrect / 5) / (elapsed / 60))
+    const accNum = (totalCorrect + totalErrors) > 0 ? Math.round((totalCorrect / (totalCorrect + totalErrors)) * 100) : 100
+    dom.resWpm.textContent = wpm
+    dom.resAcc.textContent = accNum + '%'
+    dom.resCorrect.textContent = totalCorrect
+    dom.resErrors.textContent = totalErrors 
+
+    const gradeMap = [
+        { min: 80, label: '★ s rank', cls: 'grade-s'},
+        {min: 60, label: '▲ a rank', cls: 'grade-a'}, 
+        {min: 45, label: '● b rank', cls: 'grade-b'},
+        {min:30, label:'◆ c rank', cls:'grade-c'},
+        {min:0, label:'▼ d rank', cls:'grade-d'}
+    ]
+    const grade = gradeMap.find(g => wpm >= g.min)
+    dom.resGrade.textContent = grade.label
+    dom.resGrade.className = 'grade-badge' + grade.cls
+    dom.resultsOverlay.classList.add('show')
+}
+
