@@ -190,8 +190,20 @@ function handleInput(){
     let wrongCount = 0
     
     charEls.forEach((span, i)=> {
-        if(typed[i]=== wordStr[i]){
-            console.log('corect')
+        span.classList.remove('typed', 'error', 'cursor')
+        if(i < typed.length){
+            if(typed[i] === wordStr[i]){
+                span.classList.add('typed')
+                rightCount++
+            }else{
+                span.classList.add('error')
+                wrongCount++
+            }
         }
     })
+    state.correctChars = countCharsInFinishedWords('typed') + rightCount
+    state.wrongChars = countCharsInFinishedWords('error') + wrongCount
+    placeCursor(satisfies.wordIndex, state.charIndex)
+    updateLiveStats()
 }
+
