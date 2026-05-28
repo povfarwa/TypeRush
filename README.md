@@ -43,3 +43,10 @@ i write html and css code all by my self and like i tried so much hard to write 
 
 ## Why Making This?
 I am making this app cause i love typing and especially for the HackClub event Horizons
+
+---
+
+## You can play it here
+https://type-rush-nine.vercel.app/
+
+---
